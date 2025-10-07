@@ -1,0 +1,8 @@
+/.vscode
+*.mp4
+example
+example.c
+*.docx
+src/data_parallel
+src/output_serial
+*.py

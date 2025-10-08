@@ -2,9 +2,9 @@
 #SBATCH --nodes=1                   # 1 node
 #SBATCH --ntasks=1                  # total MPI tasks across nodes
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=128           # OpenMP threads per MPI task
+#SBATCH --cpus-per-task=24           # OpenMP threads per MPI task
 #SBATCH --mem=0                     # use all available memory
-#SBATCH --partition=EPYC
+#SBATCH --partition=THIN
 #SBATCH -t 00:05:00                 # 5 minutes for profiling and test runs
 #SBATCH --job-name=HPC_Exam
 
@@ -19,7 +19,7 @@ module load openMPI/5.0.5
 # Qui ci va mpicc, mpirun etc
 mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c
 
-for nt in 1 4 16 32 64 128
+for nt in 1 4 16 24
 #for nt in 1 4
 do
     export OMP_NUM_THREADS=$nt

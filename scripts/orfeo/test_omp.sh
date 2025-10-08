@@ -17,7 +17,7 @@ export OMP_PROC_BIND=close
 module load openMPI/5.0.5
 
 # Qui ci va mpicc, mpirun etc
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
 
 for nt in 1 4 16 32 64 128
 #for nt in 1 4
@@ -25,5 +25,5 @@ do
     export OMP_NUM_THREADS=$nt
     echo "Running wih $nt threads"
     datetime=$(date +"%Y%m%d_%H%M%s")
-    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ./output/orfeo/output_${datetime}_1Task_${nt}Threads_.log
+    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ../output/orfeo/output_${datetime}_1Task_${nt}Threads_.log
 done

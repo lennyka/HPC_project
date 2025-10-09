@@ -19,7 +19,6 @@ export OMP_DISPLAY_AFFINITY=TRUE
 
 
 mpicc -D_XOPEN_SOURCE=700 -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c -o main
-mkdir -p ~/outputs
 
 for nt in 1 2 4 8 16 32 64 112
 do

@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=128           # OpenMP threads per MPI task
 #SBATCH --mem=0                     # use all available memory
 #SBATCH --partition=EPYC
-#SBATCH -t 00:05:00                 # 5 minutes for profiling and test runs
+#SBATCH -t 00:20:00                 # 5 minutes for profiling and test runs
 #SBATCH --job-name=HPC_Project
 
 # Set OpenMP variables
@@ -16,8 +16,10 @@ export OMP_PROC_BIND=close
 # Load MPI module if needed
 module load openMPI/5.0.5
 
+mkdir -p ./output/orfeo/omp_scaling_memory
+
 # Compile the code
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel.c
 
 for nt in 1 4 16 32 64 128
 do

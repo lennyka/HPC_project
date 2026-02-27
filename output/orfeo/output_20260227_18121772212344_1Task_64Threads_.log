@@ -1,0 +1,11 @@
+Tasks are decomposed in a grid 1 x 1
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E   -2    S   -2    W   -2
+task 0 is initialized
+Rank 0 :: inject time is 0.025072, fill buffer time is 0.000117, communication time is 0.000105, wait time is 0.001128, copy halo time is 0.000170, update planes time is 16.520190
+---------Rank: 0 	 Elapsed time:16.547724---------
+total injected energy is 300000, system energy is 299345 ( in avg 0.00299345 per grid point)
+Comp time,Comms time
+16.547724,0.000105
+

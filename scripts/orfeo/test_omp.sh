@@ -2,7 +2,7 @@
 #SBATCH --nodes=1                   # 1 node
 #SBATCH --ntasks=1                  # total MPI tasks across nodes
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=4           # OpenMP threads per MPI task
+#SBATCH --cpus-per-task=128           # OpenMP threads per MPI task
 #SBATCH --mem=0                     # use all available memory
 #SBATCH --partition=EPYC
 #SBATCH -t 00:05:00                 # 5 minutes for profiling and test runs

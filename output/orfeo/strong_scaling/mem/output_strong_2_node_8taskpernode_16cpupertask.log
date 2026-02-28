@@ -1,0 +1,86 @@
+Tasks are decomposed in a grid 4 x 4
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E    1    S    4    W   -2
+Task    1 :: 	grid coordinates :   1,   0
+	neighbours: N   -2    E    2    S    5    W    0
+Task    2 :: 	grid coordinates :   2,   0
+	neighbours: N   -2    E    3    S    6    W    1
+Task    3 :: 	grid coordinates :   3,   0
+	neighbours: N   -2    E   -2    S    7    W    2
+Task    8 :: 	grid coordinates :   0,   2
+	neighbours: N    4    E    9    S   12    W   -2
+Task    9 :: 	grid coordinates :   1,   2
+	neighbours: N    5    E   10    S   13    W    8
+Task   10 :: 	grid coordinates :   2,   2
+	neighbours: N    6    E   11    S   14    W    9
+Task   11 :: 	grid coordinates :   3,   2
+	neighbours: N    7    E   -2    S   15    W   10
+Task   12 :: 	grid coordinates :   0,   3
+	neighbours: N    8    E   13    S   -2    W   -2
+Task   13 :: 	grid coordinates :   1,   3
+	neighbours: N    9    E   14    S   -2    W   12
+Task   14 :: 	grid coordinates :   2,   3
+	neighbours: N   10    E   15    S   -2    W   13
+Task   15 :: 	grid coordinates :   3,   3
+	neighbours: N   11    E   -2    S   -2    W   14
+Task    4 :: 	grid coordinates :   0,   1
+	neighbours: N    0    E    5    S    8    W   -2
+Task    5 :: 	grid coordinates :   1,   1
+	neighbours: N    1    E    6    S    9    W    4
+Task    6 :: 	grid coordinates :   2,   1
+	neighbours: N    2    E    7    S   10    W    5
+Task    7 :: 	grid coordinates :   3,   1
+	neighbours: N    3    E   -2    S   11    W    6
+task 0 is initialized
+Rank 0 :: inject time is 0.001919, fill buffer time is 0.061058, communication time is 0.009615, wait time is 0.934616, copy halo time is 0.080627, update planes time is 9.196966
+---------Rank: 0 	 Elapsed time:10.286420---------
+task 1 is initialized
+Rank 1 :: inject time is 0.001517, fill buffer time is 0.093434, communication time is 0.015967, wait time is 0.906027, copy halo time is 0.102438, update planes time is 9.165749
+---------Rank: 1 	 Elapsed time:10.286567---------
+task 2 is initialized
+Rank 2 :: inject time is 0.001596, fill buffer time is 0.079779, communication time is 0.014953, wait time is 0.814081, copy halo time is 0.106686, update planes time is 9.268019
+---------Rank: 2 	 Elapsed time:10.286592---------
+task 12 is initialized
+Rank 12 :: inject time is 0.001642, fill buffer time is 0.064830, communication time is 0.009651, wait time is 1.018346, copy halo time is 0.083974, update planes time is 9.106190
+---------Rank: 12 	 Elapsed time:10.286179---------
+task 13 is initialized
+Rank 13 :: inject time is 0.001611, fill buffer time is 0.078052, communication time is 0.010192, wait time is 0.934266, copy halo time is 0.101387, update planes time is 9.159947
+---------Rank: 13 	 Elapsed time:10.286402---------
+task 3 is initialized
+Rank 3 :: inject time is 0.002437, fill buffer time is 0.063736, communication time is 0.011770, wait time is 0.986899, copy halo time is 0.083427, update planes time is 9.136978
+---------Rank: 3 	 Elapsed time:10.286496---------
+task 15 is initialized
+Rank 15 :: inject time is 0.001168, fill buffer time is 0.063543, communication time is 0.008072, wait time is 0.871849, copy halo time is 0.084274, update planes time is 9.256506
+---------Rank: 15 	 Elapsed time:10.286405---------
+total injected energy is 300000, system energy is 299770 ( in avg 0.021317 per grid point)
+Comp time,Comms time
+10.286456,0.015561
+
+task 9 is initialized
+Rank 9 :: inject time is 0.001740, fill buffer time is 0.079786, communication time is 0.020836, wait time is 0.994450, copy halo time is 0.098140, update planes time is 9.090303
+---------Rank: 9 	 Elapsed time:10.286500---------
+task 6 is initialized
+Rank 6 :: inject time is 0.001664, fill buffer time is 0.080839, communication time is 0.018786, wait time is 0.878535, copy halo time is 0.109439, update planes time is 9.195748
+---------Rank: 6 	 Elapsed time:10.286519---------
+task 8 is initialized
+Rank 8 :: inject time is 0.001779, fill buffer time is 0.061604, communication time is 0.016924, wait time is 0.925889, copy halo time is 0.081578, update planes time is 9.197298
+---------Rank: 8 	 Elapsed time:10.286495---------
+task 10 is initialized
+Rank 10 :: inject time is 0.001737, fill buffer time is 0.076059, communication time is 0.023571, wait time is 0.940842, copy halo time is 0.097956, update planes time is 9.144896
+---------Rank: 10 	 Elapsed time:10.286539---------
+task 14 is initialized
+Rank 14 :: inject time is 0.001669, fill buffer time is 0.080017, communication time is 0.013146, wait time is 1.037717, copy halo time is 0.100873, update planes time is 9.051501
+---------Rank: 14 	 Elapsed time:10.286487---------
+task 4 is initialized
+Rank 4 :: inject time is 0.001642, fill buffer time is 0.061386, communication time is 0.018095, wait time is 0.925886, copy halo time is 0.084994, update planes time is 9.192742
+---------Rank: 4 	 Elapsed time:10.286333---------
+task 5 is initialized
+Rank 5 :: inject time is 0.001569, fill buffer time is 0.078909, communication time is 0.019921, wait time is 0.963851, copy halo time is 0.102449, update planes time is 9.118270
+---------Rank: 5 	 Elapsed time:10.286492---------
+task 7 is initialized
+Rank 7 :: inject time is 0.001021, fill buffer time is 0.062746, communication time is 0.018789, wait time is 0.860439, copy halo time is 0.081925, update planes time is 9.260331
+---------Rank: 7 	 Elapsed time:10.286464---------
+task 11 is initialized
+Rank 11 :: inject time is 0.001518, fill buffer time is 0.063289, communication time is 0.018684, wait time is 1.001230, copy halo time is 0.076634, update planes time is 9.124079
+---------Rank: 11 	 Elapsed time:10.286399---------

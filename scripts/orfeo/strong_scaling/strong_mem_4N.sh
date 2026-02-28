@@ -16,5 +16,5 @@ export OMP_DISPLAY_AFFINITY=TRUE
 # Load MPI module if needed
 module load openMPI/5.0.5
 
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel_mem_vec.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel_mem.c
 srun --ntasks=32 --cpus-per-task=16 --cpu-bind=cores  ./main -x 15000 -y 15000 -p 0 -o 0 -e 300 -v 1 > ./output/orfeo/strong_scaling/mem/output_strong_4_node_8taskpernode_16cpupertask.log

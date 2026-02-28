@@ -1,9 +1,0 @@
-Running with 1 threads
-Running with 4 threads
-Running with 16 threads
-Running with 32 threads
-srun: error: Unable to create step for job 945163: Job/step already completing or completed
-Running with 64 threads
-srun: error: Unable to create step for job 945163: Job/step already completing or completed
-Running with 128 threads
-srun: error: Unable to create step for job 945163: Job/step already completing or completed

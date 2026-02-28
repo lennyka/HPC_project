@@ -1,7 +1,0 @@
-task 0 is initialized
-Rank 0 :: inject time is 0.000270, fill buffer time is 0.000022, communication time is 0.000018, wait time is 0.000136, copy halo time is 0.000025, update planes time is 1.801675
----------Rank: 0 	 Elapsed time:1.802284---------
-total injected energy is 1000, system energy is 1000 ( in avg 1e-05 per grid point)
-Comp time,Comms time
-1.802284,0.000018
-

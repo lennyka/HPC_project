@@ -6,3 +6,4 @@ example.c
 src/data_parallel
 src/output_serial
 *.py
+.venv

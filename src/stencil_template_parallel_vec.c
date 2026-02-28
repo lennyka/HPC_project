@@ -39,10 +39,10 @@ int main(int argc, char **argv)
 
     // NOTE: change MPI_FUNNELED if appropriate
     //
-    // MPI_THREAD_FUNNELED: the process may be multi-threaded but only the main 
+    // MPI_THREAD_FUNNELED: the process may be multi-threaded but only the main
     // thread will make MPI calls (this is the default level of thread support)
 
-    MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &level_obtained); 
+    MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &level_obtained);
     if (level_obtained < MPI_THREAD_FUNNELED)
     {
       printf("MPI_thread level obtained is %d instead of %d\n",
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
     MPI_Comm_rank(MPI_COMM_WORLD, &Rank);   // get the rank
     MPI_Comm_size(MPI_COMM_WORLD, &Ntasks); // get the number of tasks
-    MPI_Comm_dup(MPI_COMM_WORLD, &myCOMM_WORLD);  
+    MPI_Comm_dup(MPI_COMM_WORLD, &myCOMM_WORLD);
   }
 
   /* argument checking and setting */
@@ -77,9 +77,9 @@ int main(int argc, char **argv)
 
   int current = OLD;
   double comm_time = 0, inject_time = 0, wait_time = 0, fill_buff_time = 0, copy_halo_time = 0, update_time = 0;
-  
+
   MPI_Barrier(myCOMM_WORLD); // synchronize all processes
-  double t0 = MPI_Wtime(); // start wall timing
+  double t0 = MPI_Wtime();   // start wall timing
 
   for (int iter = 0; iter < Niterations; ++iter)
   {
@@ -339,13 +339,11 @@ inline int update_inner_points(plane_t *oldplane, plane_t *newplane)
   double *restrict old = oldplane->data;
   double *restrict new = newplane->data;
 
-  const uint simd_width = 4;
-  const uint simd_end = xsize - 1 - ((xsize - 2) % simd_width);
-
+#pragma omp parallel for
   for (uint j = 2; j < ysize; j++)
   {
     uint i = 2;
-    for ( ; i < xsize; i++)
+    for (; i < xsize - 1; i += 4)
     {
       __m256d center = _mm256_loadu_pd(&old[IDX(i, j)]);
       __m256d left = _mm256_loadu_pd(&old[IDX(i - 1, j)]);
@@ -354,9 +352,10 @@ inline int update_inner_points(plane_t *oldplane, plane_t *newplane)
       __m256d down = _mm256_loadu_pd(&old[IDX(i, j + 1)]);
 
       __m256d result = _mm256_add_pd(_mm256_mul_pd(center, _mm256_set1_pd(0.5)),
-                                  _mm256_mul_pd(_mm256_add_pd(_mm256_add_pd(left, right),
-                                  _mm256_add_pd(up, down)), _mm256_set1_pd(0.125)));
-                                  _mm256_storeu_pd(&new[IDX(i, j)], result);
+                                     _mm256_mul_pd(_mm256_add_pd(_mm256_add_pd(left, right),
+                                                                 _mm256_add_pd(up, down)),
+                                                   _mm256_set1_pd(0.125)));
+      _mm256_storeu_pd(&new[IDX(i, j)], result);
     }
 
     for (; i <= xsize - 1; i++)
@@ -600,7 +599,6 @@ int initialize(MPI_Comm *Comm,
       fprintf(stderr, "Number of iterations must be positive\n");
     return 1;
   }
-
 
   // ··································································
 

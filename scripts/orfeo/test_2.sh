@@ -14,8 +14,6 @@ export OMP_PROC_BIND=close
 
 module load openMPI/5.0.5
 
-mkdir -p ./output/orfeo
-
 mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp \
       -Iinclude ./src/stencil_template_parallel.c
 

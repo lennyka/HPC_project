@@ -16,15 +16,15 @@ export OMP_PROC_BIND=close
 # Load MPI module if needed
 module load openMPI/5.0.5
 
-mkdir -p ./output/orfeo/omp_scaling_memory
+mkdir -p ./output/orfeo/scaling/memory
 
 # Compile the code
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel_mem.c
 
-for nt in 1 4 16 32 64 128
+for nt in 1 2 4 8 16 32 64 128
 do
     export OMP_NUM_THREADS=$nt
     echo "Running with $nt threads"
     datetime=$(date +"%Y%m%d_%H%M%s")
-    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ./output/orfeo/output_${datetime}_1Task_${nt}Threads_.log
+    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ./output/orfeo/output_${datetime}_1Task_${nt}Threads_.log 2>&1
 done

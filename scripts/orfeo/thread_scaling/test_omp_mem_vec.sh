@@ -26,5 +26,5 @@ do
     export OMP_NUM_THREADS=$nt
     echo "Running with $nt threads"
     datetime=$(date +"%Y%m%d_%H%M%s")
-    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ./output/orfeo/output_${datetime}_1Task_${nt}Threads_.log 2>&1
+    srun --ntasks=1 --cpus-per-task=$nt --cpu-bind=cores ./main -o 0 -e 300 -v 1 > ./output/orfeo/scaling/memory_vec/output_${datetime}_1Task_${nt}Threads_.log 2>&1
 done

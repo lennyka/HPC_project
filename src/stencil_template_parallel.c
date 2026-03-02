@@ -8,6 +8,7 @@
  */
 
 #include "../include/stencil_template_parallel.h"
+#include <immintrin.h>
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
@@ -38,10 +39,10 @@ int main(int argc, char **argv)
 
     // NOTE: change MPI_FUNNELED if appropriate
     //
-    // MPI_THREAD_FUNNELED: the process may be multi-threaded but only the main 
+    // MPI_THREAD_FUNNELED: the process may be multi-threaded but only the main
     // thread will make MPI calls (this is the default level of thread support)
 
-    MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &level_obtained); 
+    MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &level_obtained);
     if (level_obtained < MPI_THREAD_FUNNELED)
     {
       printf("MPI_thread level obtained is %d instead of %d\n",
@@ -52,7 +53,7 @@ int main(int argc, char **argv)
 
     MPI_Comm_rank(MPI_COMM_WORLD, &Rank);   // get the rank
     MPI_Comm_size(MPI_COMM_WORLD, &Ntasks); // get the number of tasks
-    MPI_Comm_dup(MPI_COMM_WORLD, &myCOMM_WORLD);  
+    MPI_Comm_dup(MPI_COMM_WORLD, &myCOMM_WORLD);
   }
 
   /* argument checking and setting */
@@ -76,9 +77,9 @@ int main(int argc, char **argv)
 
   int current = OLD;
   double comm_time = 0, inject_time = 0, wait_time = 0, fill_buff_time = 0, copy_halo_time = 0, update_time = 0;
-  
+
   MPI_Barrier(myCOMM_WORLD); // synchronize all processes
-  double t0 = MPI_Wtime(); // start wall timing
+  double t0 = MPI_Wtime();   // start wall timing
 
   for (int iter = 0; iter < Niterations; ++iter)
   {
@@ -338,10 +339,26 @@ inline int update_inner_points(plane_t *oldplane, plane_t *newplane)
   double *restrict old = oldplane->data;
   double *restrict new = newplane->data;
 
-#pragma omp parallel for collapse(2) schedule(static)
+#pragma omp parallel for
   for (uint j = 2; j < ysize; j++)
   {
-    for (uint i = 2; i < xsize; i++)
+    uint i = 2;
+    for (; i < xsize - 1; i += 4)
+    {
+      __m256d center = _mm256_loadu_pd(&old[IDX(i, j)]);
+      __m256d left = _mm256_loadu_pd(&old[IDX(i - 1, j)]);
+      __m256d right = _mm256_loadu_pd(&old[IDX(i + 1, j)]);
+      __m256d up = _mm256_loadu_pd(&old[IDX(i, j - 1)]);
+      __m256d down = _mm256_loadu_pd(&old[IDX(i, j + 1)]);
+
+      __m256d result = _mm256_add_pd(_mm256_mul_pd(center, _mm256_set1_pd(0.5)),
+                                     _mm256_mul_pd(_mm256_add_pd(_mm256_add_pd(left, right),
+                                                                 _mm256_add_pd(up, down)),
+                                                   _mm256_set1_pd(0.125)));
+      _mm256_storeu_pd(&new[IDX(i, j)], result);
+    }
+
+    for (; i <= xsize - 1; i++)
     {
       new[IDX(i, j)] = stencil_computation(old, fxsize, i, j);
     }
@@ -582,7 +599,6 @@ int initialize(MPI_Comm *Comm,
       fprintf(stderr, "Number of iterations must be positive\n");
     return 1;
   }
-
 
   // ··································································
 
@@ -874,104 +890,84 @@ int memory_allocate(const int *neighbours,
   // allocate memory for data
   // we allocate the space needed for the plane plus a contour frame
   // that will contains data form neighbouring MPI tasks
-  unsigned int frame_size = (planes_ptr[OLD].size[_x_] + 2) * (planes_ptr[OLD].size[_y_] + 2);
+  const uint xsize = planes_ptr[OLD].size[_x_];
+  const uint ysize = planes_ptr[OLD].size[_y_];
+  unsigned int frame_size = (xsize + 2) * (ysize + 2);
 
+  // --- OLD plane ---
   planes_ptr[OLD].data = (double *)malloc(frame_size * sizeof(double));
   if (planes_ptr[OLD].data == NULL)
   {
-    // manage the malloc fail
-    fprintf(stderr, "error :: malloc failed for planes_ptr[OLD].data\n");
+    fprintf(stderr, "error :: malloc failed for OLD plane\n");
     return 1;
   }
-  memset(planes_ptr[OLD].data, 0, frame_size * sizeof(double));
 
+// TOUCH-BY-ALL: each thread initialises exactly the rows it will compute,
+// mirroring the 2D access pattern of update_inner_points (j-major, static schedule).
+// This ensures pages are mapped to the NUMA node of the thread that will use them.
+#pragma omp parallel for schedule(static)
+  for (uint j = 0; j < ysize + 2; j++)
+    for (uint i = 0; i < xsize + 2; i++)
+      planes_ptr[OLD].data[j * (xsize + 2) + i] = 0.0;
+
+  // --- NEW plane ---
   planes_ptr[NEW].data = (double *)malloc(frame_size * sizeof(double));
   if (planes_ptr[NEW].data == NULL)
   {
-    // manage the malloc fail
-    fprintf(stderr, "error :: malloc failed for planes_ptr[NEW].data\n");
+    fprintf(stderr, "error :: malloc failed for NEW plane\n");
     return 1;
   }
-  memset(planes_ptr[NEW].data, 0, frame_size * sizeof(double));
+#pragma omp parallel for schedule(static)
+  for (uint j = 0; j < ysize + 2; j++)
+    for (uint i = 0; i < xsize + 2; i++)
+      planes_ptr[NEW].data[j * (xsize + 2) + i] = 0.0;
 
-  // ··················································
-  // buffers for north and south communication
-  // are not really needed
-  //
-  // in fact, they are already contiguous, just the
-  // first and last line of every rank's plane
-  //
-  // you may just make some pointers pointing to the
-  // correct positions
-  //
-
-  // or, if you preer, just go on and allocate buffers
-  // also for north and south communications
-
-  // ··················································
-  // allocate buffers
-  //
-
-  // ··················································
-
-  const uint xsize = planes_ptr[OLD].size[_x_];
-  const uint ysize = planes_ptr[OLD].size[_y_];
-
+  // --- E/W communication buffers (N/S rows are already contiguous) ---
   if (neighbours[EAST] != MPI_PROC_NULL)
   {
     buffers_ptr[SEND][EAST] = (double *)malloc(ysize * sizeof(double));
-    if (buffers_ptr[SEND][EAST] == NULL)
-    {
-      fprintf(stderr, "error :: malloc failed for SEND EAST buffer\n");
-      free(buffers_ptr[SEND][EAST]);
-      return 1;
-    }
-
     buffers_ptr[RECV][EAST] = (double *)malloc(ysize * sizeof(double));
-    if (buffers_ptr[RECV][EAST] == NULL)
+    if (!buffers_ptr[SEND][EAST] || !buffers_ptr[RECV][EAST])
     {
-      fprintf(stderr, "error :: malloc failed for RECV EAST buffer\n");
-      free(buffers_ptr[RECV][EAST]);
+      fprintf(stderr, "error :: malloc failed for EAST buffers\n");
       return 1;
     }
   }
 
-  // WEST
   if (neighbours[WEST] != MPI_PROC_NULL)
   {
     buffers_ptr[SEND][WEST] = (double *)malloc(ysize * sizeof(double));
-    if (buffers_ptr[SEND][WEST] == NULL)
-    {
-      fprintf(stderr, "error :: malloc failed for SEND WEST buffer\n");
-      free(buffers_ptr[SEND][WEST]);
-      return 1;
-    }
-
     buffers_ptr[RECV][WEST] = (double *)malloc(ysize * sizeof(double));
-    if (buffers_ptr[RECV][WEST] == NULL)
+    if (!buffers_ptr[SEND][WEST] || !buffers_ptr[RECV][WEST])
     {
-      fprintf(stderr, "error :: malloc failed for RECV WEST buffer\n");
-      free(buffers_ptr[RECV][WEST]);
+      fprintf(stderr, "error :: malloc failed for WEST buffers\n");
       return 1;
     }
   }
+
   return 0;
 }
 
 int memory_release(plane_t *planes, buffers_t *buffers_ptr)
 {
-
   if (planes != NULL)
   {
     if (planes[OLD].data != NULL)
-    {
       free(planes[OLD].data);
-    }
-
     if (planes[NEW].data != NULL)
-    {
       free(planes[NEW].data);
-    }
+  }
+
+  if (buffers_ptr != NULL)
+  {
+    if (buffers_ptr[SEND][EAST] != NULL)
+      free(buffers_ptr[SEND][EAST]);
+    if (buffers_ptr[RECV][EAST] != NULL)
+      free(buffers_ptr[RECV][EAST]);
+    if (buffers_ptr[SEND][WEST] != NULL)
+      free(buffers_ptr[SEND][WEST]);
+    if (buffers_ptr[RECV][WEST] != NULL)
+      free(buffers_ptr[RECV][WEST]);
   }
 
   return 0;

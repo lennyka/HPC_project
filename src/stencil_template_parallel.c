@@ -577,7 +577,7 @@ int initialize(MPI_Comm *Comm,
   }
 
   // check if the number of sources is meaningful
-  if (*Nsources < 0 || *Nsources > (int)((*S)[_x_] * (*S)[_y_]))
+  if (*Nsources < 0 || *Nsources > (uint)((*S)[_x_] * (*S)[_y_]))
   {
     if (Me == 0)
       fprintf(stderr, "Number of sources must be non-negative and smaller than the grid size\n");

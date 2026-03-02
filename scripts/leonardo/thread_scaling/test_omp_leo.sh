@@ -15,7 +15,6 @@ module load openmpi/4.1.6--gcc--12.2.0
 
 export OMP_PLACES=threads
 export OMP_PROC_BIND=close
-export OMP_DISPLAY_AFFINITY=TRUE
 
 
 mpicc -D_XOPEN_SOURCE=700 -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c -o main

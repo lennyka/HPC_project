@@ -12,7 +12,7 @@
 module load openMPI/5.0.5 
 
 BIN=stencil_parallel
-SRC=src/stencil_parallel_mem.c
+SRC=./src/stencil_template_parallel.c
 mkdir -p outputs_valgrind
 
 # Build with debug symbols
@@ -34,8 +34,6 @@ D1="32768,8,64"
 L2="524288,8,64"
 # Shared LLC slice (bytes)
 L3="16777216,16,64"
-
-mkdir -p outputs_valgrind
 
 echo "[*] L2-view (LL = L2 = $L2)"
 srun -n1 -c1 --cpu-bind=cores \

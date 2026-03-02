@@ -10,3 +10,12 @@ src/output_serial
 /output/leonardo/strong
 /output/leonardo/thread
 /output/leonardo/weak
+
+/output/orfeo/strong
+/output/orfeo/scaling
+/output/orfeo/weak
+/output/orfeo/prova
+
+/src/stencil_parallel_mem.c
+/src/stencil_parallel_mem_vec.c
+/src/stencil_template_parallel_vec.c

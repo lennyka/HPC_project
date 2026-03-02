@@ -16,5 +16,5 @@ export OMP_PROC_BIND=close
 # Load MPI module if needed
 module load openMPI/5.0.5
 
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_parallel_mem.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c
 srun --ntasks=16 --cpus-per-task=16 --ntasks-per-node=8 --cpu-bind=cores  ./main -x 21213 -y 21213 -p 0 -o 0 -e 300 -v 1 > ./output/orfeo/weak_scaling/output_weak_2_node_8taskpernode_16cpupertask.log 2>&1

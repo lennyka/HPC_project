@@ -1,4 +1,0 @@
-Loading openmpi/4.1.6--gcc--12.2.0
-  Loading requirement: gcc/12.2.0-binut2.41
-/var/spool/slurmd/job35328356/slurm_script: line 22: ./outputs/strong_scaling/mem/output_strong_4_node_8taskpernode_14cpupertask.log: No such file or directory
-/var/spool/slurmd/job35328356/slurm_script: line 25: ./outputs/strong_scaling/mem/output_strong_4_node_8taskpernode_14cpupertask.log: No such file or directory

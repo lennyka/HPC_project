@@ -18,12 +18,12 @@ export OMP_PROC_BIND=close
 export OMP_DISPLAY_AFFINITY=TRUE
 
 
-mpicc -D_XOPEN_SOURCE=700 -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel_vec.c -o main
+mpicc -D_XOPEN_SOURCE=700 -march=native -O3 -std=c17 -fopenmp -Iinclude ./src/stencil_template_parallel.c -o main
 
 for nt in 1 2 4 8 16 32 64 112
 do
     export OMP_NUM_THREADS=$nt
     echo "Running wih $nt threads"
     datetime=$(date +"%Y%m%d_%H%M")
-    srun --ntasks=1 --cpus-per-task=$nt ./main -p 1 -o 0 -e 300 -v 1 > ./output/leonardo/thread_scaling/output_${datetime}_1Task_${nt}Threads_parallel_vec.log
+    srun --ntasks=1 --cpus-per-task=$nt ./main -p 1 -o 0 -e 300 -v 1 > ./output/leonardo/thread_scaling/output_${datetime}_1Task_${nt}Threads_mem.log 2>&1
 done

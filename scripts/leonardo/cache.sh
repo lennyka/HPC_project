@@ -9,7 +9,7 @@
 #SBATCH -t 00:30:00
 #SBATCH --job-name=cachegrind_leo
 #SBATCH --exclusive
-#SBATCH --output=./output/leonardo/cachegrind/slurm_%j.log
+#SBATCH --output=./outputs_valgrind/slurm_%j.log
 
 module load gcc/12.2.0
 module load openmpi/4.1.6--gcc--12.2.0
@@ -26,19 +26,19 @@ valgrind --tool=cachegrind \
          --cache-sim=yes \
          --cachegrind-out-file=./output/leonardo/cachegrind/cachegrind_small.out \
          mpirun -np 1 ./main_val -x 2000 -y 2000 -n 10 -o 0 -e 5 \
-         > ./output/leonardo/cachegrind/cachegrind_small.log 2>&1
+         > ./outputs_valgrind/cachegrind_small.log 2>&1
 
 cg_annotate ./output/leonardo/cachegrind/cachegrind_small.out \
-            >> ./output/leonardo/cachegrind/cachegrind_small.log 2>&1
+            >> ./outputs_valgrind/cachegrind_small.log 2>&1
 
 echo "=== Run 2: large grid 5000x5000 (exceeds L3) ==="
 valgrind --tool=cachegrind \
          --cache-sim=yes \
          --cachegrind-out-file=./output/leonardo/cachegrind/cachegrind_large.out \
          mpirun -np 1 ./main_val -x 5000 -y 5000 -n 5 -o 0 -e 5 \
-         > ./output/leonardo/cachegrind/cachegrind_large.log 2>&1
+         > ./outputs_valgrind/cachegrind_large.log 2>&1
 
 cg_annotate ./output/leonardo/cachegrind/cachegrind_large.out \
-            >> ./output/leonardo/cachegrind/cachegrind_large.log 2>&1
+            >> ./outputs_valgrind/cachegrind_large.log 2>&1
 
-echo "Done. Results in ./output/leonardo/cachegrind/"
+echo "Done. Results in ./outputs_valgrind"

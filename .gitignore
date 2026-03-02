@@ -7,3 +7,6 @@ src/data_parallel
 src/output_serial
 *.py
 .venv
+/output/leonardo/strong
+/output/leonardo/thread
+/output/leonardo/weak

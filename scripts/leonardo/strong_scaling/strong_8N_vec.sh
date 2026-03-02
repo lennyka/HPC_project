@@ -19,7 +19,7 @@ export OMP_DISPLAY_AFFINITY=TRUE
 mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_parallel_mem_vec.c
 
 start_time=$(date +%s.%N)
-srun --ntasks=64 --cpus-per-task=14 --cpu-bind=cores  ./main -x 30000 -y 30000 -p 0 -o 0 -e 300 -v 1 > ./output/strong_scaling/mem_vec/output_strong_8_node_8taskpernode_14cpupertask.log
+srun --ntasks=64 --cpus-per-task=14 --cpu-bind=cores  ./main -x 30000 -y 30000 -p 0 -o 0 -e 300 -v 1 > ./output/leonardo/strong_scaling/mem_vec/output_strong_8_node_8taskpernode_14cpupertask.log
 end_time=$(date +%s.%N)
 tot_time=$(echo "$end_time - $start_time" | bc)
-echo "Total_time: ${tot_time}" >> ./output/strong_scaling/mem_vec/output_strong_8_node_8taskpernode_14cpupertask.log
+echo "Total_time: ${tot_time}" >> ./output/leonardo/strong_scaling/mem_vec/output_strong_8_node_8taskpernode_14cpupertask.log

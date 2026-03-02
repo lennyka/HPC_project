@@ -16,10 +16,10 @@ export OMP_PLACES=cores
 export OMP_PROC_BIND=close
 export OMP_DISPLAY_AFFINITY=TRUE
 
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_parallel_mem.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel.c
 
 start_time=$(date +%s.%N)
-srun --ntasks=16 --cpus-per-task=14 --cpu-bind=cores  ./main -x 30000 -y 30000 -p 0 -o 0 -e 300 -v 1 > ./output/leonardo/strong_scaling/mem/output_strong_2_node_8taskpernode_14cpupertask.log
+srun --ntasks=16 --cpus-per-task=14 --cpu-bind=cores  ./main -x 30000 -y 30000 -p 0 -o 0 -e 300 -v 1 > ./output/leonardo/strong_scaling/base/output_strong_2_node_8taskpernode_14cpupertask.log
 end_time=$(date +%s.%N)
 tot_time=$(echo "$end_time - $start_time" | bc)
-echo "Total_time: ${tot_time}" >> ./output/leonardo/strong_scaling/mem/output_strong_2_node_8taskpernode_14cpupertask.log
+echo "Total_time: ${tot_time}" >> ./output/leonardo/strong_scaling/base/output_strong_2_node_8taskpernode_14cpupertask.log

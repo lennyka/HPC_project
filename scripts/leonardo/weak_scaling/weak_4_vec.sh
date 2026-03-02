@@ -16,7 +16,7 @@ export OMP_PLACES=cores
 export OMP_PROC_BIND=close
 export OMP_DISPLAY_AFFINITY=TRUE
 
-mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_parallel_mem_vec.c
+mpicc -D_XOPEN_SOURCE=700 -o main -march=native -O3 -std=c17 -fopenmp -Iinclude src/stencil_template_parallel_vec.c
 
 nt0=8
 nt=32
@@ -29,7 +29,7 @@ x=$(echo "$x0 * $scale" | bc -l | awk '{printf "%d\n", $1}')
 y=$(echo "$y0 * $scale" | bc -l | awk '{printf "%d\n", $1}')
 
 start_time=$(date +%s.%N)
-srun --ntasks=$nt --cpus-per-task=14 --cpu-bind=cores  ./main -x $x -y $y -p 0 -o 0 -e 300 -v 1 > ./output/leonardo/weak_scaling/output_weak_4_node_8taskpernode_14cpupertask_vec.log
+srun --ntasks=$nt --cpus-per-task=14 --cpu-bind=cores  ./main -x $x -y $y -p 0 -o 0 -e 300 -v 1 > ./output/leonardo/weak_scaling/nomem/output_weak_4_node_8taskpernode_14cpupertask_vec.log
 end_time=$(date +%s.%N)
 tot_time=$(echo "$end_time - $start_time" | bc)
-echo "Total_time: ${tot_time}" >> ./output/leonardo/weak_scaling/output_weak_4_node_8taskpernode_14cpupertask_vec.log
+echo "Total_time: ${tot_time}" >> ./output/leonardo/weak_scaling/nomem/output_weak_4_node_8taskpernode_14cpupertask_vec.log

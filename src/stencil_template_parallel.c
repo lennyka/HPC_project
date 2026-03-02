@@ -152,11 +152,11 @@ int main(int argc, char **argv)
     current = !current;
   }
 
-  printf("Rank %d :: inject time is %.6f, fill buffer time is %.6f, communication time is %.6f, wait time is %.6f, copy halo time is %.6f, update planes time is %.6f\n",
-         Rank, inject_time, fill_buff_time, comm_time, wait_time, copy_halo_time, update_time);
+  // printf("Rank %d :: inject time is %.6f, fill buffer time is %.6f, communication time is %.6f, wait time is %.6f, copy halo time is %.6f, update planes time is %.6f\n",
+  //       Rank, inject_time, fill_buff_time, comm_time, wait_time, copy_halo_time, update_time);
 
   t0 = MPI_Wtime() - t0;
-  printf("---------Rank: %d \t Elapsed time:%.6f---------\n", Rank, t0);
+  // printf("---------Rank: %d \t Elapsed time:%.6f---------\n", Rank, t0);
 
   output_energy_stat(-1, &planes[!current], Niterations * Nsources * energy_per_source, Rank, &myCOMM_WORLD);
 

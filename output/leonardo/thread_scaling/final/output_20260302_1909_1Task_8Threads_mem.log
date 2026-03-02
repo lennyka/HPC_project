@@ -1,0 +1,19 @@
+Tasks are decomposed in a grid 1 x 1
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E   -2    S   -2    W   -2
+level 1 thread 0x15440408c7c0 affinity 0
+level 1 thread 0x1543b9545700 affinity 1
+level 1 thread 0x1543b9344700 affinity 2
+level 1 thread 0x1543b9143700 affinity 3
+level 1 thread 0x1543b8f42700 affinity 4
+level 1 thread 0x1543b8d41700 affinity 5
+level 1 thread 0x1543b8b40700 affinity 6
+level 1 thread 0x1543b893f700 affinity 7
+task 0 is initialized
+Rank 0 :: inject time is 0.004274, fill buffer time is 0.000023, communication time is 0.000110, wait time is 0.000613, copy halo time is 0.000096, update planes time is 39.548543
+---------Rank: 0 	 Elapsed time:39.554097---------
+total injected energy is 300000, system energy is 300000 ( in avg 0.003 per grid point)
+Comp time,Comms time
+39.554097,0.000110
+

@@ -1,0 +1,615 @@
+Tasks are decomposed in a grid 8 x 4
+
+Task    8 :: 	grid coordinates :   0,   1
+	neighbours: N    0    E    9    S   16    W   -2
+Task   16 :: 	grid coordinates :   0,   2
+	neighbours: N    8    E   17    S   24    W   -2
+Task   24 :: 	grid coordinates :   0,   3
+	neighbours: N   16    E   25    S   -2    W   -2
+Task   25 :: 	grid coordinates :   1,   3
+	neighbours: N   17    E   26    S   -2    W   24
+Task   26 :: 	grid coordinates :   2,   3
+	neighbours: N   18    E   27    S   -2    W   25
+Task   27 :: 	grid coordinates :   3,   3
+	neighbours: N   19    E   28    S   -2    W   26
+Task   28 :: 	grid coordinates :   4,   3
+	neighbours: N   20    E   29    S   -2    W   27
+Task   29 :: 	grid coordinates :   5,   3
+	neighbours: N   21    E   30    S   -2    W   28
+Task   30 :: 	grid coordinates :   6,   3
+	neighbours: N   22    E   31    S   -2    W   29
+Task   31 :: 	grid coordinates :   7,   3
+	neighbours: N   23    E   -2    S   -2    W   30
+level 1 thread 0x1527ccc107c0 affinity 14
+level 1 thread 0x1527a4468700 affinity 15
+level 1 thread 0x1527a4267700 affinity 16
+level 1 thread 0x1527a4066700 affinity 17
+level 1 thread 0x1527a3e65700 affinity 18
+level 1 thread 0x1527a3c64700 affinity 19
+level 1 thread 0x1527a3a63700 affinity 20
+level 1 thread 0x1527a3862700 affinity 21
+level 1 thread 0x1527a3661700 affinity 22
+level 1 thread 0x1527a3460700 affinity 23
+level 1 thread 0x1527a325f700 affinity 24
+level 1 thread 0x1527a305e700 affinity 25
+level 1 thread 0x1527a2e5d700 affinity 26
+level 1 thread 0x1527a2c5c700 affinity 27
+level 1 thread 0x14e22f8657c0 affinity 28
+level 1 thread 0x14e2070c5700 affinity 29
+level 1 thread 0x14e206ec4700 affinity 30
+level 1 thread 0x14e206cc3700 affinity 31
+level 1 thread 0x14e206ac2700 affinity 32
+level 1 thread 0x14e2068c1700 affinity 33
+level 1 thread 0x14e2066c0700 affinity 34
+level 1 thread 0x14e2064bf700 affinity 35
+level 1 thread 0x14e2062be700 affinity 36
+level 1 thread 0x14e2060bd700 affinity 37
+level 1 thread 0x14e205ebc700 affinity 38
+level 1 thread 0x14e205cbb700 affinity 39
+level 1 thread 0x14e205aba700 affinity 40
+level 1 thread 0x14e2058b9700 affinity 41
+level 1 thread 0x14800bed87c0 affinity 84
+level 1 thread 0x147fe373d700 affinity 85
+level 1 thread 0x147fe353c700 affinity 86
+level 1 thread 0x147fe333b700 affinity 87
+level 1 thread 0x147fe313a700 affinity 88
+level 1 thread 0x147fe2f39700 affinity 89
+level 1 thread 0x147fe2d38700 affinity 90
+level 1 thread 0x147fe2b37700 affinity 91
+level 1 thread 0x147fe2936700 affinity 92
+level 1 thread 0x147fe2735700 affinity 93
+level 1 thread 0x147fe2534700 affinity 94
+level 1 thread 0x147fe2333700 affinity 95
+level 1 thread 0x147fe2132700 affinity 96
+level 1 thread 0x147fe1f31700 affinity 97
+level 1 thread 0x14d987f977c0 affinity 42
+level 1 thread 0x14d95efdd700 affinity 43
+level 1 thread 0x14d95eddc700 affinity 44
+level 1 thread 0x14d95ebdb700 affinity 45
+level 1 thread 0x14d95e9da700 affinity 46
+level 1 thread 0x14d95e7d9700 affinity 47
+level 1 thread 0x14d95e5d8700 affinity 48
+level 1 thread 0x14d95e3d7700 affinity 49
+level 1 thread 0x14d95e1d6700 affinity 50
+level 1 thread 0x14d95dfd5700 affinity 51
+level 1 thread 0x14d95ddd4700 affinity 52
+level 1 thread 0x14d95dbd3700 affinity 53
+level 1 thread 0x14d95d9d2700 affinity 54
+level 1 thread 0x14d95d7d1700 affinity 55
+level 1 thread 0x149697eab7c0 affinity 56
+level 1 thread 0x14966f705700 affinity 57
+level 1 thread 0x14966f504700 affinity 58
+level 1 thread 0x14966f303700 affinity 59
+level 1 thread 0x14966f102700 affinity 60
+level 1 thread 0x14966ef01700 affinity 61
+level 1 thread 0x14966ed00700 affinity 62
+level 1 thread 0x14966eaff700 affinity 63
+level 1 thread 0x148bcabd47c0 affinity 70
+level 1 thread 0x148bbc2fd700 affinity 71
+level 1 thread 0x148ba1912700 affinity 72
+level 1 thread 0x148ba1711700 affinity 73
+level 1 thread 0x148ba1510700 affinity 74
+level 1 thread 0x148ba130f700 affinity 75
+level 1 thread 0x148ba110e700 affinity 76
+level 1 thread 0x148ba0f0d700 affinity 77
+level 1 thread 0x148ba0d0c700 affinity 78
+level 1 thread 0x148ba0b0b700 affinity 79
+level 1 thread 0x148ba090a700 affinity 80
+level 1 thread 0x148ba0709700 affinity 81
+level 1 thread 0x148ba0508700 affinity 82
+level 1 thread 0x148ba0307700 affinity 83
+level 1 thread 0x14966e8fe700 affinity 64
+level 1 thread 0x14966e6fd700 affinity 65
+level 1 thread 0x14966e4fc700 affinity 66
+level 1 thread 0x14966e2fb700 affinity 67
+level 1 thread 0x14966e0fa700 affinity 68
+level 1 thread 0x14966def9700 affinity 69
+Task   17 :: 	grid coordinates :   1,   2
+	neighbours: N    9    E   18    S   25    W   16
+Task   18 :: 	grid coordinates :   2,   2
+	neighbours: N   10    E   19    S   26    W   17
+Task   19 :: 	grid coordinates :   3,   2
+	neighbours: N   11    E   20    S   27    W   18
+Task   20 :: 	grid coordinates :   4,   2
+	neighbours: N   12    E   21    S   28    W   19
+Task   21 :: 	grid coordinates :   5,   2
+	neighbours: N   13    E   22    S   29    W   20
+Task   22 :: 	grid coordinates :   6,   2
+	neighbours: N   14    E   23    S   30    W   21
+Task   23 :: 	grid coordinates :   7,   2
+	neighbours: N   15    E   -2    S   31    W   22
+level 1 thread 0x14f0c63797c0 affinity 0
+level 1 thread 0x14f0b84b3700 affinity 1
+level 1 thread 0x14f0b82b2700 affinity 2
+level 1 thread 0x14f09cf0c700 affinity 3
+level 1 thread 0x14f09cd0b700 affinity 4
+level 1 thread 0x14f09cb0a700 affinity 5
+level 1 thread 0x14f09c909700 affinity 6
+level 1 thread 0x14f09c708700 affinity 7
+level 1 thread 0x14f09c507700 affinity 8
+level 1 thread 0x14f09c306700 affinity 9
+level 1 thread 0x14f09c105700 affinity 10
+level 1 thread 0x14f09bf04700 affinity 11
+level 1 thread 0x14f09bd03700 affinity 12
+level 1 thread 0x14f09bb02700 affinity 13
+level 1 thread 0x14e43e0b07c0 affinity 14
+level 1 thread 0x14e414f0c700 affinity 15
+level 1 thread 0x14e414d0b700 affinity 16
+level 1 thread 0x14e414b0a700 affinity 17
+level 1 thread 0x14e414909700 affinity 18
+level 1 thread 0x14e414708700 affinity 19
+level 1 thread 0x14e414507700 affinity 20
+level 1 thread 0x14e414306700 affinity 21
+level 1 thread 0x14e414105700 affinity 22
+level 1 thread 0x14e413f04700 affinity 23
+level 1 thread 0x14e413d03700 affinity 24
+level 1 thread 0x14e413b02700 affinity 25
+level 1 thread 0x14e413901700 affinity 26
+level 1 thread 0x14e413700700 affinity 27
+level 1 thread 0x14a2c7bd57c0 affinity 28
+level 1 thread 0x14a29ec10700 affinity 29
+level 1 thread 0x14a29ea0f700 affinity 30
+level 1 thread 0x14a29e80e700 affinity 31
+level 1 thread 0x14a29e60d700 affinity 32
+level 1 thread 0x14a29e40c700 affinity 33
+level 1 thread 0x14a29e20b700 affinity 34
+level 1 thread 0x14a29e00a700 affinity 35
+level 1 thread 0x14a29de09700 affinity 36
+level 1 thread 0x14a29dc08700 affinity 37
+level 1 thread 0x14a29da07700 affinity 38
+level 1 thread 0x14a29d806700 affinity 39
+level 1 thread 0x14a29d605700 affinity 40
+level 1 thread 0x14a29d404700 affinity 41
+Task    9 :: 	grid coordinates :   1,   1
+	neighbours: N    1    E   10    S   17    W    8
+level 1 thread 0x146f19d237c0 affinity 42
+level 1 thread 0x146f0c67f700 affinity 43
+level 1 thread 0x146f0c47e700 affinity 44
+level 1 thread 0x146f0c27d700 affinity 45
+level 1 thread 0x146ef0f0c700 affinity 46
+level 1 thread 0x146ef0d0b700 affinity 47
+level 1 thread 0x146ef0b0a700 affinity 48
+level 1 thread 0x146ef0909700 affinity 49
+level 1 thread 0x146ef0708700 affinity 50
+level 1 thread 0x146ef0507700 affinity 51
+level 1 thread 0x146ef0306700 affinity 52
+level 1 thread 0x146ef0105700 affinity 53
+level 1 thread 0x146eeff04700 affinity 54
+level 1 thread 0x146eefd03700 affinity 55
+Task   10 :: 	grid coordinates :   2,   1
+	neighbours: N    2    E   11    S   18    W    9
+level 1 thread 0x14bb026a87c0 affinity 56
+level 1 thread 0x14baf47de700 affinity 57
+level 1 thread 0x14baf45dd700 affinity 58
+level 1 thread 0x14baf43dc700 affinity 59
+level 1 thread 0x14bad8f0c700 affinity 60
+level 1 thread 0x14bad8d0b700 affinity 61
+level 1 thread 0x14bad8b0a700 affinity 62
+level 1 thread 0x14bad8909700 affinity 63
+level 1 thread 0x14bad8708700 affinity 64
+level 1 thread 0x14bad8507700 affinity 65
+level 1 thread 0x14bad8306700 affinity 66
+level 1 thread 0x14bad8105700 affinity 67
+level 1 thread 0x14bad7f04700 affinity 68
+level 1 thread 0x14bad7d03700 affinity 69
+Task   11 :: 	grid coordinates :   3,   1
+	neighbours: N    3    E   12    S   19    W   10
+level 1 thread 0x14de05c297c0 affinity 70
+level 1 thread 0x14ddf857c700 affinity 71
+level 1 thread 0x14ddf837b700 affinity 72
+level 1 thread 0x14dddcf0c700 affinity 73
+level 1 thread 0x14dddcd0b700 affinity 74
+level 1 thread 0x14dddcb0a700 affinity 75
+level 1 thread 0x14dddc909700 affinity 76
+level 1 thread 0x14dddc708700 affinity 77
+level 1 thread 0x14dddc507700 affinity 78
+level 1 thread 0x14dddc306700 affinity 79
+level 1 thread 0x14dddc105700 affinity 80
+level 1 thread 0x14dddbf04700 affinity 81
+level 1 thread 0x14dddbd03700 affinity 82
+level 1 thread 0x14dddbb02700 affinity 83
+Task   12 :: 	grid coordinates :   4,   1
+	neighbours: N    4    E   13    S   20    W   11
+level 1 thread 0x14ff461367c0 affinity 84
+level 1 thread 0x14ff38270700 affinity 85
+level 1 thread 0x14ff1cf0c700 affinity 86
+level 1 thread 0x14ff1cd0b700 affinity 87
+level 1 thread 0x14ff1cb0a700 affinity 88
+level 1 thread 0x14ff1c909700 affinity 89
+level 1 thread 0x14ff1c708700 affinity 90
+level 1 thread 0x14ff1c507700 affinity 91
+level 1 thread 0x14ff1c306700 affinity 92
+level 1 thread 0x14ff1c105700 affinity 93
+level 1 thread 0x14ff1bf04700 affinity 94
+level 1 thread 0x14ff1bd03700 affinity 95
+level 1 thread 0x14ff1bb02700 affinity 96
+level 1 thread 0x14ff1b901700 affinity 97
+Task   13 :: 	grid coordinates :   5,   1
+	neighbours: N    5    E   14    S   21    W   12
+level 1 thread 0x14a431ce67c0 affinity 98
+level 1 thread 0x14a42463e700 affinity 99
+level 1 thread 0x14a42443d700 affinity 100
+level 1 thread 0x14a42423c700 affinity 101
+level 1 thread 0x14a4086eb700 affinity 102
+level 1 thread 0x14a4084ea700 affinity 103
+level 1 thread 0x14a4082e9700 affinity 104
+level 1 thread 0x14a4080e8700 affinity 105
+level 1 thread 0x14a407ee7700 affinity 106
+level 1 thread 0x14a407ce6700 affinity 107
+level 1 thread 0x14a407ae5700 affinity 108
+level 1 thread 0x14a4078e4700 affinity 109
+level 1 thread 0x14a4076e3700 affinity 110
+level 1 thread 0x14a4074e2700 affinity 111
+Task   14 :: 	grid coordinates :   6,   1
+	neighbours: N    6    E   15    S   22    W   13
+Task   15 :: 	grid coordinates :   7,   1
+	neighbours: N    7    E   -2    S   23    W   14
+level 1 thread 0x14b70aeb37c0 affinity 0
+level 1 thread 0x14b6e1ee2700 affinity 1
+level 1 thread 0x14b6e1ce1700 affinity 2
+level 1 thread 0x14b6e1ae0700 affinity 3
+level 1 thread 0x14b6e18df700 affinity 4
+level 1 thread 0x14b6e16de700 affinity 5
+level 1 thread 0x14b6e14dd700 affinity 6
+level 1 thread 0x14b6e12dc700 affinity 7
+level 1 thread 0x14b6e10db700 affinity 8
+level 1 thread 0x14b6e0eda700 affinity 9
+level 1 thread 0x14b6e0cd9700 affinity 10
+level 1 thread 0x14b6e0ad8700 affinity 11
+level 1 thread 0x14b6e08d7700 affinity 12
+level 1 thread 0x14b6e06d6700 affinity 13
+level 1 thread 0x14904c7c17c0 affinity 14
+level 1 thread 0x1490237f5700 affinity 15
+level 1 thread 0x1490235f4700 affinity 16
+level 1 thread 0x1490233f3700 affinity 17
+level 1 thread 0x1490231f2700 affinity 18
+level 1 thread 0x149022ff1700 affinity 19
+level 1 thread 0x149022df0700 affinity 20
+level 1 thread 0x149022bef700 affinity 21
+level 1 thread 0x1490229ee700 affinity 22
+level 1 thread 0x1490227ed700 affinity 23
+level 1 thread 0x1490225ec700 affinity 24
+level 1 thread 0x1490223eb700 affinity 25
+level 1 thread 0x1490221ea700 affinity 26
+level 1 thread 0x149021fe9700 affinity 27
+level 1 thread 0x14d9d7e437c0 affinity 42
+level 1 thread 0x14d9aee87700 affinity 43
+level 1 thread 0x14d9aec86700 affinity 44
+level 1 thread 0x14d9aea85700 affinity 45
+level 1 thread 0x14d9ae884700 affinity 46
+level 1 thread 0x14d9ae683700 affinity 47
+level 1 thread 0x14d9ae482700 affinity 48
+level 1 thread 0x14d9ae281700 affinity 49
+level 1 thread 0x14d9ae080700 affinity 50
+level 1 thread 0x14d9ade7f700 affinity 51
+level 1 thread 0x14d9adc7e700 affinity 52
+level 1 thread 0x14d9ada7d700 affinity 53
+level 1 thread 0x14d9ad87c700 affinity 54
+level 1 thread 0x14d9ad67b700 affinity 55
+level 1 thread 0x14c3589d37c0 affinity 56
+level 1 thread 0x14c32fa18700 affinity 57
+level 1 thread 0x14c32f817700 affinity 58
+level 1 thread 0x14c32f616700 affinity 59
+level 1 thread 0x14c32f415700 affinity 60
+level 1 thread 0x14c32f214700 affinity 61
+level 1 thread 0x14c32f013700 affinity 62
+level 1 thread 0x14c32ee12700 affinity 63
+level 1 thread 0x14c32ec11700 affinity 64
+level 1 thread 0x14c32ea10700 affinity 65
+level 1 thread 0x14c32e80f700 affinity 66
+level 1 thread 0x14c32e60e700 affinity 67
+level 1 thread 0x14c32e40d700 affinity 68
+level 1 thread 0x14c32e20c700 affinity 69
+level 1 thread 0x14c62c4897c0 affinity 98
+level 1 thread 0x14c6034b9700 affinity 99
+level 1 thread 0x14c6032b8700 affinity 100
+level 1 thread 0x14c6030b7700 affinity 101
+level 1 thread 0x14c602eb6700 affinity 102
+level 1 thread 0x14c602cb5700 affinity 103
+level 1 thread 0x14c602ab4700 affinity 104
+level 1 thread 0x14c6028b3700 affinity 105
+level 1 thread 0x14c6026b2700 affinity 106
+level 1 thread 0x14c6024b1700 affinity 107
+level 1 thread 0x14c6022b0700 affinity 108
+level 1 thread 0x14c6020af700 affinity 109
+level 1 thread 0x14c601eae700 affinity 110
+level 1 thread 0x14c601cad700 affinity 111
+level 1 thread 0x145d4724e7c0 affinity 70
+level 1 thread 0x145d1e26d700 affinity 71
+level 1 thread 0x145d1e06c700 affinity 72
+level 1 thread 0x145d1de6b700 affinity 73
+level 1 thread 0x145d1dc6a700 affinity 74
+level 1 thread 0x145d1da69700 affinity 75
+level 1 thread 0x145d1d868700 affinity 76
+level 1 thread 0x145d1d667700 affinity 77
+level 1 thread 0x145d1d466700 affinity 78
+level 1 thread 0x145d1d265700 affinity 79
+level 1 thread 0x145d1d064700 affinity 80
+level 1 thread 0x145d1ce63700 affinity 81
+level 1 thread 0x145d1cc62700 affinity 82
+level 1 thread 0x145d1ca61700 affinity 83
+level 1 thread 0x1463a4f337c0 affinity 28
+level 1 thread 0x14637beb1700 affinity 29
+level 1 thread 0x14637bcb0700 affinity 30
+level 1 thread 0x14637baaf700 affinity 31
+level 1 thread 0x14637b8ae700 affinity 32
+level 1 thread 0x14637b6ad700 affinity 33
+level 1 thread 0x14637b4ac700 affinity 34
+level 1 thread 0x14637b2ab700 affinity 35
+level 1 thread 0x14637b0aa700 affinity 36
+level 1 thread 0x14637aea9700 affinity 37
+level 1 thread 0x14637aca8700 affinity 38
+level 1 thread 0x14637aaa7700 affinity 39
+level 1 thread 0x14637a8a6700 affinity 40
+level 1 thread 0x14637a6a5700 affinity 41
+level 1 thread 0x1522c9fdb7c0 affinity 84
+level 1 thread 0x1522a0f0c700 affinity 85
+level 1 thread 0x1522a0d0b700 affinity 86
+level 1 thread 0x1522a0b0a700 affinity 87
+level 1 thread 0x1522a0909700 affinity 88
+level 1 thread 0x1522a0708700 affinity 89
+level 1 thread 0x1522a0507700 affinity 90
+level 1 thread 0x1522a0306700 affinity 91
+level 1 thread 0x1522a0105700 affinity 92
+level 1 thread 0x15229ff04700 affinity 93
+level 1 thread 0x15229fd03700 affinity 94
+level 1 thread 0x15229fb02700 affinity 95
+level 1 thread 0x15229f901700 affinity 96
+level 1 thread 0x15229f700700 affinity 97
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E    1    S    8    W   -2
+Task    1 :: 	grid coordinates :   1,   0
+	neighbours: N   -2    E    2    S    9    W    0
+Task    2 :: 	grid coordinates :   2,   0
+	neighbours: N   -2    E    3    S   10    W    1
+Task    3 :: 	grid coordinates :   3,   0
+	neighbours: N   -2    E    4    S   11    W    2
+Task    4 :: 	grid coordinates :   4,   0
+	neighbours: N   -2    E    5    S   12    W    3
+Task    5 :: 	grid coordinates :   5,   0
+	neighbours: N   -2    E    6    S   13    W    4
+Task    6 :: 	grid coordinates :   6,   0
+	neighbours: N   -2    E    7    S   14    W    5
+Task    7 :: 	grid coordinates :   7,   0
+	neighbours: N   -2    E   -2    S   15    W    6
+level 1 thread 0x1520bda1a7c0 affinity 0
+level 1 thread 0x1520b0363700 affinity 1
+level 1 thread 0x152094f0c700 affinity 2
+level 1 thread 0x152094d0b700 affinity 3
+level 1 thread 0x152094b0a700 affinity 4
+level 1 thread 0x152094909700 affinity 5
+level 1 thread 0x152094708700 affinity 6
+level 1 thread 0x152094507700 affinity 7
+level 1 thread 0x152094306700 affinity 8
+level 1 thread 0x152094105700 affinity 9
+level 1 thread 0x152093f04700 affinity 10
+level 1 thread 0x152093d03700 affinity 11
+level 1 thread 0x152093b02700 affinity 12
+level 1 thread 0x152093901700 affinity 13
+level 1 thread 0x153c55cca7c0 affinity 14
+level 1 thread 0x153c48621700 affinity 15
+level 1 thread 0x153c48420700 affinity 16
+level 1 thread 0x153c4821f700 affinity 17
+level 1 thread 0x153c2c6eb700 affinity 18
+level 1 thread 0x153c2c4ea700 affinity 19
+level 1 thread 0x153c2c2e9700 affinity 20
+level 1 thread 0x153c2c0e8700 affinity 21
+level 1 thread 0x153c2bee7700 affinity 22
+level 1 thread 0x153c2bce6700 affinity 23
+level 1 thread 0x153c2bae5700 affinity 24
+level 1 thread 0x153c2b8e4700 affinity 25
+level 1 thread 0x153c2b6e3700 affinity 26
+level 1 thread 0x153c2b4e2700 affinity 27
+level 1 thread 0x146d5ab1f7c0 affinity 28
+level 1 thread 0x146d4c253700 affinity 29
+level 1 thread 0x146d31912700 affinity 30
+level 1 thread 0x146d31711700 affinity 31
+level 1 thread 0x146d31510700 affinity 32
+level 1 thread 0x146d3130f700 affinity 33
+level 1 thread 0x146d3110e700 affinity 34
+level 1 thread 0x146d30f0d700 affinity 35
+level 1 thread 0x146d30d0c700 affinity 36
+level 1 thread 0x146d30b0b700 affinity 37
+level 1 thread 0x146d3090a700 affinity 38
+level 1 thread 0x146d30709700 affinity 39
+level 1 thread 0x146d30508700 affinity 40
+level 1 thread 0x146d30307700 affinity 41
+level 1 thread 0x14c29fb287c0 affinity 42
+level 1 thread 0x14c276b6f700 affinity 43
+level 1 thread 0x14c27696e700 affinity 44
+level 1 thread 0x14c27676d700 affinity 45
+level 1 thread 0x14c27656c700 affinity 46
+level 1 thread 0x14c27636b700 affinity 47
+level 1 thread 0x14c27616a700 affinity 48
+level 1 thread 0x14c275f69700 affinity 49
+level 1 thread 0x14c275d68700 affinity 50
+level 1 thread 0x14c275b67700 affinity 51
+level 1 thread 0x14c275966700 affinity 52
+level 1 thread 0x14c275765700 affinity 53
+level 1 thread 0x14c275564700 affinity 54
+level 1 thread 0x14c275363700 affinity 55
+level 1 thread 0x1488e04807c0 affinity 56
+level 1 thread 0x1488b74b9700 affinity 57
+level 1 thread 0x1488b72b8700 affinity 58
+level 1 thread 0x1488b70b7700 affinity 59
+level 1 thread 0x1488b6eb6700 affinity 60
+level 1 thread 0x1488b6cb5700 affinity 61
+level 1 thread 0x1488b6ab4700 affinity 62
+level 1 thread 0x1488b68b3700 affinity 63
+level 1 thread 0x1488b66b2700 affinity 64
+level 1 thread 0x1488b64b1700 affinity 65
+level 1 thread 0x1488b62b0700 affinity 66
+level 1 thread 0x1488b60af700 affinity 67
+level 1 thread 0x1488b5eae700 affinity 68
+level 1 thread 0x1488b5cad700 affinity 69
+level 1 thread 0x14c493a567c0 affinity 70
+level 1 thread 0x14c46aa9e700 affinity 71
+level 1 thread 0x14c46a89d700 affinity 72
+level 1 thread 0x14c46a69c700 affinity 73
+level 1 thread 0x14c46a49b700 affinity 74
+level 1 thread 0x14c46a29a700 affinity 75
+level 1 thread 0x14c46a099700 affinity 76
+level 1 thread 0x14c469e98700 affinity 77
+level 1 thread 0x14c469c97700 affinity 78
+level 1 thread 0x14c469a96700 affinity 79
+level 1 thread 0x14c469895700 affinity 80
+level 1 thread 0x14c469694700 affinity 81
+level 1 thread 0x14c469493700 affinity 82
+level 1 thread 0x14c469292700 affinity 83
+level 1 thread 0x1531e15927c0 affinity 84
+level 1 thread 0x1531d4304700 affinity 85
+level 1 thread 0x1531cc5b1700 affinity 86
+level 1 thread 0x1531cc3b0700 affinity 87
+level 1 thread 0x1531b7d18700 affinity 88
+level 1 thread 0x1531b7b17700 affinity 89
+level 1 thread 0x1531b7916700 affinity 90
+level 1 thread 0x1531b7715700 affinity 91
+level 1 thread 0x1531b7514700 affinity 92
+level 1 thread 0x1531b7313700 affinity 93
+level 1 thread 0x1531b7112700 affinity 94
+level 1 thread 0x1531b6f11700 affinity 95
+level 1 thread 0x1531b6d10700 affinity 96
+level 1 thread 0x1531b6b0f700 affinity 97
+level 1 thread 0x15150099b7c0 affinity 98
+level 1 thread 0x1514d79d6700 affinity 99
+level 1 thread 0x1514d77d5700 affinity 100
+level 1 thread 0x1514d75d4700 affinity 101
+level 1 thread 0x1514d73d3700 affinity 102
+level 1 thread 0x1514d71d2700 affinity 103
+level 1 thread 0x1514d6fd1700 affinity 104
+level 1 thread 0x1514d6dd0700 affinity 105
+level 1 thread 0x1514d6bcf700 affinity 106
+level 1 thread 0x1514d69ce700 affinity 107
+level 1 thread 0x1514d67cd700 affinity 108
+level 1 thread 0x1514d65cc700 affinity 109
+level 1 thread 0x1514d63cb700 affinity 110
+level 1 thread 0x1514d61ca700 affinity 111
+level 1 thread 0x14d5ec28e7c0 affinity 98
+level 1 thread 0x14d5c3af0700 affinity 99
+level 1 thread 0x14d5c38ef700 affinity 100
+level 1 thread 0x14d5c36ee700 affinity 101
+level 1 thread 0x14d5c34ed700 affinity 102
+level 1 thread 0x14d5c32ec700 affinity 103
+level 1 thread 0x14d5c30eb700 affinity 104
+level 1 thread 0x14d5c2eea700 affinity 105
+level 1 thread 0x14d5c2ce9700 affinity 106
+level 1 thread 0x14d5c2ae8700 affinity 107
+level 1 thread 0x14d5c28e7700 affinity 108
+level 1 thread 0x14d5c26e6700 affinity 109
+level 1 thread 0x14d5c24e5700 affinity 110
+level 1 thread 0x14d5c22e4700 affinity 111
+level 1 thread 0x147dc96ea7c0 affinity 0
+level 1 thread 0x147da0539700 affinity 1
+level 1 thread 0x147da0338700 affinity 2
+level 1 thread 0x147da0137700 affinity 3
+level 1 thread 0x147d9ff36700 affinity 4
+level 1 thread 0x147d9fd35700 affinity 5
+level 1 thread 0x147d9fb34700 affinity 6
+level 1 thread 0x147d9f933700 affinity 7
+level 1 thread 0x147d9f732700 affinity 8
+level 1 thread 0x147d9f531700 affinity 9
+level 1 thread 0x147d9f330700 affinity 10
+level 1 thread 0x147d9f12f700 affinity 11
+level 1 thread 0x147d9ef2e700 affinity 12
+level 1 thread 0x147d9ed2d700 affinity 13
+task 0 is initialized
+Rank 0 :: inject time is 0.000403, fill buffer time is 0.059972, communication time is 0.008423, wait time is 0.154233, copy halo time is 0.070170, update planes time is 9.252696
+---------Rank: 0 	 Elapsed time:9.546573---------
+task 25 is initialized
+Rank 25 :: inject time is 0.000451, fill buffer time is 0.103456, communication time is 0.009544, wait time is 0.095585, copy halo time is 0.099748, update planes time is 9.220712
+---------Rank: 25 	 Elapsed time:9.530074---------
+task 31 is initialized
+Rank 31 :: inject time is 0.000378, fill buffer time is 0.058401, communication time is 0.009100, wait time is 0.221032, copy halo time is 0.066165, update planes time is 9.174330
+---------Rank: 31 	 Elapsed time:9.529940---------
+task 24 is initialized
+Rank 24 :: inject time is 0.000379, fill buffer time is 0.058637, communication time is 0.007191, wait time is 0.198355, copy halo time is 0.067380, update planes time is 9.197467
+---------Rank: 24 	 Elapsed time:9.530032---------
+task 27 is initialized
+Rank 27 :: inject time is 0.000387, fill buffer time is 0.109132, communication time is 0.008542, wait time is 0.142582, copy halo time is 0.100213, update planes time is 9.168702
+---------Rank: 27 	 Elapsed time:9.530056---------
+task 28 is initialized
+Rank 28 :: inject time is 0.000287, fill buffer time is 0.105337, communication time is 0.011026, wait time is 0.151021, copy halo time is 0.102638, update planes time is 9.159165
+---------Rank: 28 	 Elapsed time:9.530025---------
+task 29 is initialized
+Rank 29 :: inject time is 0.000470, fill buffer time is 0.103137, communication time is 0.007957, wait time is 0.156306, copy halo time is 0.095870, update planes time is 9.165716
+---------Rank: 29 	 Elapsed time:9.529994---------
+task 30 is initialized
+Rank 30 :: inject time is 0.000320, fill buffer time is 0.103243, communication time is 0.009708, wait time is 0.163146, copy halo time is 0.100123, update planes time is 9.152949
+---------Rank: 30 	 Elapsed time:9.530003---------
+task 19 is initialized
+Rank 19 :: inject time is 0.000381, fill buffer time is 0.107426, communication time is 0.021646, wait time is 0.128008, copy halo time is 0.095586, update planes time is 9.185707
+---------Rank: 19 	 Elapsed time:9.539350---------
+task 26 is initialized
+Rank 26 :: inject time is 0.000472, fill buffer time is 0.104205, communication time is 0.009927, wait time is 0.138369, copy halo time is 0.100290, update planes time is 9.176111
+---------Rank: 26 	 Elapsed time:9.530065---------
+task 18 is initialized
+Rank 18 :: inject time is 0.000442, fill buffer time is 0.100705, communication time is 0.018526, wait time is 0.121039, copy halo time is 0.090838, update planes time is 9.207307
+---------Rank: 18 	 Elapsed time:9.539343---------
+task 17 is initialized
+Rank 17 :: inject time is 0.000465, fill buffer time is 0.104801, communication time is 0.017827, wait time is 0.093675, copy halo time is 0.099468, update planes time is 9.222703
+---------Rank: 17 	 Elapsed time:9.539496---------
+task 16 is initialized
+Rank 16 :: inject time is 0.000565, fill buffer time is 0.058979, communication time is 0.018677, wait time is 0.125009, copy halo time is 0.067270, update planes time is 9.268338
+---------Rank: 16 	 Elapsed time:9.539460---------
+task 22 is initialized
+Rank 22 :: inject time is 0.000440, fill buffer time is 0.102475, communication time is 0.018743, wait time is 0.119027, copy halo time is 0.097662, update planes time is 9.200508
+---------Rank: 22 	 Elapsed time:9.539269---------
+task 23 is initialized
+Rank 23 :: inject time is 0.000473, fill buffer time is 0.057811, communication time is 0.018132, wait time is 0.234992, copy halo time is 0.063657, update planes time is 9.163669
+---------Rank: 23 	 Elapsed time:9.539268---------
+task 21 is initialized
+Rank 21 :: inject time is 0.000347, fill buffer time is 0.100296, communication time is 0.020187, wait time is 0.180909, copy halo time is 0.089470, update planes time is 9.147438
+---------Rank: 21 	 Elapsed time:9.539248---------
+task 20 is initialized
+Rank 20 :: inject time is 0.000386, fill buffer time is 0.105216, communication time is 0.019977, wait time is 0.108236, copy halo time is 0.100809, update planes time is 9.204009
+---------Rank: 20 	 Elapsed time:9.539296---------
+task 2 is initialized
+Rank 2 :: inject time is 0.000504, fill buffer time is 0.104250, communication time is 0.008289, wait time is 0.067187, copy halo time is 0.101533, update planes time is 9.264329
+---------Rank: 2 	 Elapsed time:9.546701---------
+task 5 is initialized
+Rank 5 :: inject time is 0.000585, fill buffer time is 0.104695, communication time is 0.008902, wait time is 0.110574, copy halo time is 0.101024, update planes time is 9.220325
+---------Rank: 5 	 Elapsed time:9.546652---------
+task 4 is initialized
+Rank 4 :: inject time is 0.000397, fill buffer time is 0.104063, communication time is 0.009541, wait time is 0.135374, copy halo time is 0.097704, update planes time is 9.198936
+---------Rank: 4 	 Elapsed time:9.546661---------
+task 6 is initialized
+Rank 6 :: inject time is 0.000425, fill buffer time is 0.105518, communication time is 0.008681, wait time is 0.113249, copy halo time is 0.105568, update planes time is 9.212560
+---------Rank: 6 	 Elapsed time:9.546660---------
+task 7 is initialized
+Rank 7 :: inject time is 0.000464, fill buffer time is 0.061812, communication time is 0.008438, wait time is 0.184672, copy halo time is 0.071908, update planes time is 9.218482
+---------Rank: 7 	 Elapsed time:9.546506---------
+task 1 is initialized
+Rank 1 :: inject time is 0.000323, fill buffer time is 0.102456, communication time is 0.008372, wait time is 0.129413, copy halo time is 0.095876, update planes time is 9.209590
+---------Rank: 1 	 Elapsed time:9.546710---------
+task 3 is initialized
+Rank 3 :: inject time is 0.000376, fill buffer time is 0.110396, communication time is 0.009682, wait time is 0.129899, copy halo time is 0.102587, update planes time is 9.193210
+---------Rank: 3 	 Elapsed time:9.546691---------
+task 11 is initialized
+Rank 11 :: inject time is 0.000438, fill buffer time is 0.109435, communication time is 0.023996, wait time is 0.097760, copy halo time is 0.100960, update planes time is 9.215251
+---------Rank: 11 	 Elapsed time:9.548331---------
+task 15 is initialized
+Rank 15 :: inject time is 0.000506, fill buffer time is 0.059661, communication time is 0.022896, wait time is 0.187647, copy halo time is 0.070464, update planes time is 9.206678
+---------Rank: 15 	 Elapsed time:9.548467---------
+total injected energy is 300000, system energy is 299070 ( in avg 0.0106336 per grid point)
+Comp time,Comms time
+9.541092,0.015983
+
+task 10 is initialized
+Rank 10 :: inject time is 0.000405, fill buffer time is 0.105057, communication time is 0.027600, wait time is 0.071346, copy halo time is 0.102830, update planes time is 9.240548
+---------Rank: 10 	 Elapsed time:9.548278---------
+task 12 is initialized
+Rank 12 :: inject time is 0.000480, fill buffer time is 0.105350, communication time is 0.029981, wait time is 0.075647, copy halo time is 0.101434, update planes time is 9.234988
+---------Rank: 12 	 Elapsed time:9.548404---------
+task 13 is initialized
+Rank 13 :: inject time is 0.000311, fill buffer time is 0.105369, communication time is 0.030397, wait time is 0.085826, copy halo time is 0.100563, update planes time is 9.225577
+---------Rank: 13 	 Elapsed time:9.548500---------
+task 14 is initialized
+Rank 14 :: inject time is 0.000425, fill buffer time is 0.104482, communication time is 0.029485, wait time is 0.064595, copy halo time is 0.102151, update planes time is 9.246809
+---------Rank: 14 	 Elapsed time:9.548512---------
+task 9 is initialized
+Rank 9 :: inject time is 0.000366, fill buffer time is 0.105520, communication time is 0.028570, wait time is 0.080917, copy halo time is 0.101360, update planes time is 9.231083
+---------Rank: 9 	 Elapsed time:9.548298---------
+task 8 is initialized
+Rank 8 :: inject time is 0.000513, fill buffer time is 0.060702, communication time is 0.021490, wait time is 0.125197, copy halo time is 0.069801, update planes time is 9.269796
+---------Rank: 8 	 Elapsed time:9.548064---------
+Total_time: 11.472510268

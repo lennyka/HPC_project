@@ -11,12 +11,19 @@
 
 module load openMPI/5.0.5 
 
+echo "=== debug ==="
+which valgrind || echo "valgrind NOT FOUND in PATH"
+valgrind --version || echo "valgrind version failed"
+which cg_annotate || echo "cg_annotate NOT FOUND"
+ls -lh ./stencil_parallel || echo "binary not found"
+echo "=== end debug ==="
+
 BIN=stencil_parallel
 SRC=./src/stencil_template_parallel.c
 mkdir -p outputs_valgrind
 
-# Build with debug symbols
-mpicc -O3 -march=native -std=c17 -g -fno-omit-frame-pointer -fopenmp -Iinclude "$SRC" -o "$BIN"
+# Build with debug symbol
+mpicc -D_XOPEN_SOURCE=700 -O3 -march=native -std=c17 -g -fno-omit-frame-pointer -fopenmp -Iinclude "$SRC" -o "$BIN"
 
 # Keep runs small (Valgrind is 10–100× slower). Adjust your app args:
 APP_ARGS="-x 512 -y 512 -o 0 -v 0 -n 100"   # <-- replace with a tiny test case if you have size flags

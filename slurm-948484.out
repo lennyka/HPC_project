@@ -1,0 +1,23 @@
+=== debug ===
+/usr/bin/valgrind
+valgrind-3.24.0
+/usr/bin/cg_annotate
+ls: cannot access './stencil_parallel': No such file or directory
+binary not found
+=== end debug ===
+./src/stencil_template_parallel.c: In function ‘initialize_sources’:
+./src/stencil_template_parallel.c:795:3: error: implicit declaration of function ‘srand48’; did you mean ‘srand’? [-Wimplicit-function-declaration]
+  795 |   srand48(time(NULL) ^ Me);
+      |   ^~~~~~~
+      |   srand
+./src/stencil_template_parallel.c:801:36: error: implicit declaration of function ‘lrand48’ [-Wimplicit-function-declaration]
+  801 |       tasks_with_sources[i] = (int)lrand48() % Ntasks;
+      |                                    ^~~~~~~
+[*] L2-view (LL = L2 = 524288,8,64)
+valgrind: ./stencil_parallel: No such file or directory
+srun: error: epyc004: task 0: Exited with exit code 127
+cg_annotate: error: [Errno 2] No such file or directory: 'outputs_valgrind/cachegrind_L2.out'
+[*] L3-view (LL = L3 slice = 16777216,16,64)
+valgrind: ./stencil_parallel: No such file or directory
+srun: error: epyc004: task 0: Exited with exit code 127
+cg_annotate: error: [Errno 2] No such file or directory: 'outputs_valgrind/cachegrind_L3.out'

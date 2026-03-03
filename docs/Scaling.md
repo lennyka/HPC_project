@@ -29,27 +29,6 @@ From 32 threads onward the speedup becomes perfectly linear (doubling threads ha
 
 ---
 
-## Thread Scaling — Orfeo EPYC
-
-**Configuration:** 1 MPI rank, variable OpenMP threads, grid 10000×10000, 1000 iterations, 4 code variants.
-
-| Variant | 1 thread | 128 threads | Speedup |
-|---------|----------|-------------|---------|
-| base (no vec, no touch-by-all) | 159.26s | 8.92s | 17.8× |
-| vectorized only | 100.10s | 9.11s | 11.0× |
-| touch-by-all only | 159.02s | 8.93s | 17.8× |
-| vectorized + touch-by-all | 97.71s | 8.96s | 10.9× |
-
-### Analysis
-
-**Vectorization** gives a consistent ~37% speedup at 1 thread (159s → 100s) by processing 4 doubles per iteration instead of 1. The benefit disappears at 128 threads because the bottleneck shifts entirely to memory bandwidth — all variants converge to ~9s regardless of compute efficiency.
-
-**Touch-by-all** shows no measurable effect on Orfeo (~0.1% difference). With `schedule(static)` the same thread processes the same rows in both the initialization loop and the compute loop, so pages land on the correct NUMA node regardless — the touch-by-all is correct by construction and adds no overhead, but the benefit is not measurable in this single-rank configuration.
-
-The maximum speedup on Orfeo (~18×) is lower than on Leonardo (~28×) despite having more cores (128 vs 112), because the Zen 2 DDR4 memory bandwidth is lower than Leonardo's DDR5 and the fragmented L3 (per-CCX) offers less effective cache capacity at high thread counts.
-
----
-
 ## Strong Scaling — Leonardo DCGP
 
 **Configuration:** 8 tasks/node × 14 threads/task = 112 cores/node, grid 30000×30000, 1000 iterations, 300 sources.
@@ -99,6 +78,5 @@ The slight oscillation (even/odd nodes) is consistent across runs and likely ref
 | Test | Result | Key observation |
 |------|--------|-----------------|
 | Thread scaling (Leonardo) | 27.7× at 112 threads | Two-phase behavior: bandwidth saturation within socket, then linear scaling across sockets |
-| Thread scaling (Orfeo) | 17.8× at 128 threads | Vectorization gives 37% at 1 thread; all variants converge at full bandwidth |
 | Strong scaling (Leonardo) | 17.9× at 16 nodes, 112% efficiency | Superlinear due to cache fit effect |
 | Weak scaling (Leonardo) | ~97% efficiency across 1–16 nodes | Communication overhead negligible at all scales |

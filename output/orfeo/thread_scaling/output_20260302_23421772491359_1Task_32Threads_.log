@@ -1,0 +1,11 @@
+srun: Job 948144 step creation temporarily disabled, retrying (Socket timed out on send/recv operation)
+srun: Job 948144 step creation still disabled, retrying (Socket timed out on send/recv operation)
+srun: Step created for StepId=948144.5
+Tasks are decomposed in a grid 1 x 1
+
+Task    0 :: 	grid coordinates :   0,   0
+	neighbours: N   -2    E   -2    S   -2    W   -2
+total injected energy is 300000, system energy is 298957 ( in avg 0.00298957 per grid point)
+Comp time,Comms time
+32.497870,0.000104
+

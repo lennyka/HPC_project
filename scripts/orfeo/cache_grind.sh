@@ -62,4 +62,4 @@ srun -n1 -c1 --cpu-bind=cores \
   ./stencil_parallel $APP_ARGS
 
 cg_annotate --auto=yes outputs_valgrind/cachegrind_L3.out \
- g> outputs_valgrind/cachegrind_L3_annotate.txt
+ > outputs_valgrind/cachegrind_L3_annotate.txt

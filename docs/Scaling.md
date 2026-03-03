@@ -1,6 +1,6 @@
 # Scaling Analysis
 
-All tests use the final code version with AVX2 manual intrinsics and touch-by-all NUMA initialization. Compilation: `mpicc -fopenmp -O3 -march=native -std=c17`.
+All tests use the final code version with AVX2 manual intrinsics and touch-by-all NUMA initialization. Compilation: `mpicc -fopenmp -O3 -march=native -std=c17 -D_XOPEN_SOURCE=700`.
 
 ---
 

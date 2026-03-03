@@ -24,7 +24,7 @@ module load openMPI/5.0.5
 ## Compilation Command
 
 ```bash
-mpicc -fopenmp -O3 -march=native -std=c17 -Iinclude src/stencil_template_parallel.c -o main
+mpicc -fopenmp -O3 -march=native -std=c17 -D_XOPEN_SOURCE=700 -Iinclude src/stencil_template_parallel.c -o main
 ```
 
 **Important:** `-march=native` detects the CPU of the node where you compile. Always compile on a compute node, not the login node, to avoid generating instructions unsupported on compute nodes.
@@ -59,6 +59,15 @@ Enables processing of `#pragma omp` directives. Without this flag the directives
 ### `-std=c17` — C Standard
 
 Ensures consistent behavior for variable-length array rules, `restrict` qualifiers, and `_Generic` expressions used in the codebase.
+
+### `-D_XOPEN_SOURCE=700` — POSIX Feature Exposure
+
+Defines the X/Open conformance level to POSIX.1-2008 (SUSv4). This exposes declarations that are part of the POSIX standard but not of C17 itself. Three functions in the codebase require this macro:
+
+- getopt — used in initialize to parse command-line arguments (-x, -y, -n, etc.)
+- srand48, lrand48 — used in initialize_sources for random placement of heat sources
+
+Without this flag, GCC may emit implicit declaration warnings or errors for these functions when compiling with -std=c17, since strict C17 mode does not expose POSIX extensions by default.
 
 ---
 
